@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animated Clock</title>
+    <style>
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    margin: 0;
+}
+
+.clock {
+    width: 300px;
+    height: 300px;
+    border: 1px solid greenyellow;
+    border-radius: 50%;
+    position: relative;
+    padding: 2rem;
+    background-color: gray;
+    background-image: url(clock.png);
+    background-size: cover;
+    box-shadow: 0 0 30px #fc466b;
+}
+
+.clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-3px);
+}
+
+.react{
+    position: absolute;
+    height: 100px;
+    width: 120px;
+    left: 125px;
+    top: 180px;
+}
+
+.hand {
+    width: 50%;
+    height: 4px;
+    background: black;
+    position: absolute;
+    top: 53%;
+    transform-origin: 100%;
+    transition-timing-function: cubic-bezier(0.4, 2.3, 0.3, 1);
+}
+
+.second-hand {
+    height: 2px;
+    background: red;
+    animation: rotate-second 60s linear infinite;
+}
+
+.minute-hand {
+    height: 4px;
+    animation: rotate-minute 3600s linear infinite;
+}
+
+.hour-hand {
+    height: 8px;
+    animation: rotate-hour 43200s linear infinite;
+}
+
+@keyframes rotate-second {
+    from {
+        transform: rotate(90deg);
+    }
+    to {
+        transform: rotate(450deg);
+    }
+}
+
+@keyframes rotate-minute {
+    from {
+        transform: rotate(90deg);
+    }
+    to {
+        transform: rotate(450deg);
+    }
+}
+
+@keyframes rotate-hour {
+    from {
+        transform: rotate(90deg);
+    }
+    to {
+        transform: rotate(450deg);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <img class="react" src="react.png">
+        <div class="clock-face">
+            <div class="hand hour-hand"></div>
+            <div class="hand minute-hand"></div>
+            <div class="hand second-hand"></div>
+        </div>
+    </div>
+</body>
+</html>
